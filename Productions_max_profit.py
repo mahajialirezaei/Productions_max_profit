@@ -1,5 +1,5 @@
 def print_result_func(best_sol, best_profit):
-    print("a:" + str(best_sol[0]) + "b:" + str(best_sol[1]) + "c:" + str(best_sol[2]))
+    print("a:" + str(best_sol[0]) + " b:" + str(best_sol[1]) + " c:" + str(best_sol[2]))
     print("total: "+ str(best_profit))
 
 
@@ -26,12 +26,12 @@ def solve_product(p, l, m, L, M):
             if rem_l < 0 or rem_m < 0:
                 continue
 
-        x1 = min(rem_l / l1, rem_m / m1)
-        profit = p1*x1 + p2* b + p3*c
+            x1 = min(rem_l / l1, rem_m / m1) if (l1 > 0 and m1 > 0) else 0
+            profit = p1*x1 + p2* b + p3 * c
 
-        if profit > best_profit or abs(profit - best_profit) < 1e-10 and (b > best_sol[1] or (b == best_sol[1] and c > best_sol[2])):
-            best_profit = profit
-            best_sol = (x1, b, c)
+            if profit > best_profit or abs(profit - best_profit) < 1e-10 and (b > best_sol[1] or (b == best_sol[1] and c > best_sol[2])):
+                best_profit = profit
+                best_sol = (x1, b, c)
 
         return best_sol, best_profit
 
