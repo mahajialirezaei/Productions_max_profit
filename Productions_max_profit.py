@@ -1,4 +1,3 @@
-import pulp
 def print_result_func(best_sol, best_profit):
     print("a:" + str(best_sol[0]) + " b:" + str(best_sol[1]) + " c:" + str(best_sol[2]))
     print("total: " + str(best_profit))
