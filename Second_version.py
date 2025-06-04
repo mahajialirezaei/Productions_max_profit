@@ -16,9 +16,8 @@ def solve_with_pulp(p, l, m, L, M):
 
     prob += l1 * x1 + l2 * x2 + l3 * x3 <= L, "time"
     prob += m1 * x1 + m2 * x2 + m3 * x3 <= M, "material"
-    prob.solve(pulp.PULP_CBC_CMD(msg=0))
+    prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
-    status = pulp.LpStatus[prob.status]
 
     x1_opt = pulp.value(x1)
     x2_opt = int(pulp.value(x2))
