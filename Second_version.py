@@ -34,11 +34,10 @@ def print_result(best_sol, best_profit):
     print(f"total = {best_profit}")
 
 
-if __name__ == "__main__":
-    p = list(map(int, input().split()))
-    l = list(map(int, input().split()))
-    m = list(map(int, input().split()))
-    L, M = map(int, input().split())
+p = list(map(int, input().split()))
+l = list(map(int, input().split()))
+m = list(map(int, input().split()))
+L, M = map(int, input().split())
 
-    best_sol, best_profit = solve_with_pulp(p, l, m, L, M)
-    print_result(best_sol, best_profit)
+best_sol, best_profit = solve_with_pulp(p, l, m, L, M)
+print_result(best_sol, best_profit)
