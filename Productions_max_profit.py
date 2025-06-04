@@ -15,6 +15,10 @@ def solve_product(p, l, m, L, M):
     for b in range(max_B + 1):
         remaining_l_b = L - b * l2
         remaining_m_b = M - b * m2
+
+
+
+
         if remaining_l_b < 0 or remaining_m_b < 0:
             continue
 
