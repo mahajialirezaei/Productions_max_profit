@@ -69,10 +69,7 @@ def solve_product(p, l, m, L, M):
             x1 = max_possible_x1
             profit = p1 * x1 + p2 * b + p3 * c
 
-            if profit > best_profit or (
-                abs(profit - best_profit) < 1e-10 and
-                (b > best_sol[1] or (b == best_sol[1] and c > best_sol[2]))
-            ):
+            if profit > best_profit:
                 best_profit = profit
                 best_sol = (x1, b, c)
 
