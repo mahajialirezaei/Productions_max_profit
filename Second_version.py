@@ -19,10 +19,7 @@ def solve_with_pulp(p, l, m, L, M):
     prob.solve(pulp.PULP_CBC_CMD(msg=0))
 
     status = pulp.LpStatus[prob.status]
-    if status != "Optimal":
-        print("توجه: وضعیت حل بهینه نیست! وضعیت فعلی:", status)
 
-    # استخراج جواب‌ها
     x1_opt = pulp.value(x1)
     x2_opt = int(pulp.value(x2))
     x3_opt = int(pulp.value(x3))
@@ -33,16 +30,15 @@ def solve_with_pulp(p, l, m, L, M):
 
 def print_result(best_sol, best_profit):
     x1_opt, x2_opt, x3_opt = best_sol
-    print(f"x1: {x1_opt:.6f}, x2: {x2_opt}, x3: {x3_opt}")
-    print(f"Total Profit = {best_profit:.6f}")
+    print(f"x1: {x1_opt}, x2: {x2_opt}, x3: {x3_opt}")
+    print(f"total = {best_profit}")
 
 
 if __name__ == "__main__":
-    # خواندن ورودی از استاندارد
-    p = list(map(int, input().split()))  # p1 p2 p3
-    l = list(map(int, input().split()))  # l1 l2 l3
-    m = list(map(int, input().split()))  # m1 m2 m3
-    L, M = map(int, input().split())  # L M (کل منابع)
+    p = list(map(int, input().split()))
+    l = list(map(int, input().split()))
+    m = list(map(int, input().split()))
+    L, M = map(int, input().split())
 
     best_sol, best_profit = solve_with_pulp(p, l, m, L, M)
     print_result(best_sol, best_profit)
