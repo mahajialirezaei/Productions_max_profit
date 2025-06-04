@@ -37,7 +37,7 @@ def solve_product(p, l, m, L, M):
 
     best_profit = -float('inf')
     best_sol = (0.0, 0, 0)
-    max_B = max(L // l2 if l2 > 0 else 0, M // m2 if m2 > 0 else 0)
+    max_B = min(L // l2 if l2 > 0 else 0, M // m2 if m2 > 0 else 0)
 
     for b in range(max_B + 1):
         remaining_l_b = L - b * l2
