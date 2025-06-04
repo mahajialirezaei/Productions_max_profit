@@ -32,6 +32,21 @@ def solve_product(p, l, m, L, M):
         else:
             case2 = 0.0
 
+
+        det = l1 * m3 - l3 * m1
+        if det != 0:
+            x1_case3 = (remaining_l_b * m3 - remaining_m_b * l3) / det
+            x3_case3 = (-1 * remaining_l_b * m1 + remaining_m_b * l1) / det
+            if x1_case3 >=0 and x3_case3 >= 0:
+                case3 = p1 * x1_case3 + p3 * x3_case3
+            else:
+                case3 = 0.0
+        else:
+            case3 = 0.0
+
+        bound_b = p2 + max(case1, case2, case3)
+        if bound_b <= best_profit:
+            continue
         max_C = min(remaining_l_b // l3 if l3 > 0 else 0,
                     remaining_m_b // m3 if m3 > 0 else 0)
 
