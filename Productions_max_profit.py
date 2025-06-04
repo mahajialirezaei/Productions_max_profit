@@ -17,13 +17,24 @@ def solve_product(p, l, m, L, M):
         remaining_m_b = M - b * m2
 
 
-
-
         if remaining_l_b < 0 or remaining_m_b < 0:
             continue
 
+        if l1 > 0 and m1 > 0:
+            x1_case1 = min(remaining_l_b / l1, remaining_m_b / m1)
+            case1 = p1 * x1_case1
+        else:
+            case1 = 0.0
+
+        if l3 > 0 and m3 > 0:
+            x3_case2 = min(remaining_l_b / l3, remaining_m_b / m3)
+            case2 = p3 * x3_case2
+        else:
+            case2 = 0.0
+
         max_C = min(remaining_l_b // l3 if l3 > 0 else 0,
                     remaining_m_b // m3 if m3 > 0 else 0)
+
 
         for c in range(max_C + 1):
             rem_l = remaining_l_b - c * l3
